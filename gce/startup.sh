@@ -17,6 +17,20 @@
 apt-get update
 apt-get -y install jq
 
+# install node
+apt -y upgrade
+apt update
+apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+apt -y install nodejs
+apt -y  install gcc g++ make
+
+# install npm
+apt install npm
+
+# install yarn
+npm install --global yarn
+
 # access secret from secretsmanager
 secrets=$(gcloud secrets versions access latest --secret="runner-secret")
 # set secrets as env vars
